@@ -1,7 +1,12 @@
-import { homepage } from './controller.js';
+const express = require('express');
+const router = express.Router();
+const { saveStudent, updateStudent, removeUser, removeAllUsers, getUser, getMembers } = require('../controller/studentController');
 
-const router = (app) => {
-    app.get('/', homepage);
-}
+router.post('/save-student', saveStudent);
+router.post('/update', updateStudent);
+router.post('/remove-user', removeUser);
+router.post('/remove-all-user', removeAllUsers);
+router.get('/user', getUser);
+router.get('/members', getMembers);
 
-export default router;
+module.exports = router;
