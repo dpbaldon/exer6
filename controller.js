@@ -33,7 +33,7 @@ const removeUser = async (req, res) => {
 const removeAllUsers = async (req, res) => {
     try {
     const deleteall = await Student.deleteMany({});
-    return res.status(200).json({ deleted: true, deleteCount: deleteall.deleteCount });
+    return res.status(200).json({ deleted: true, deletedCount: deleteall.deletedCount });
     } catch (error) {
         console.error("error:", error);
         return res.status(500).send("error");
