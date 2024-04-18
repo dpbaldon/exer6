@@ -1,9 +1,16 @@
 import mongoose from 'mongoose';
 
-await mongoose.connect("mongodb://127.0.0.1:27017/ICS",{ useNewUrlParser: true, useUnifiedTopology: true
-});
+// Connect to MongoDB
+await mongoose.connect('mongodb+srv://dpbaldon:6sgCczBkWY2ITVOg@cluster0.13bwyiw.mongodb.net/ICS');
+console.log("connected to mongodb");
 
-const Student = require('model');
+// Define the student schema
+const Student = mongoose.model('students', {
+  stdnum: Number,
+  fname: String,
+  lname: String,
+  age: Number
+}, 'studentData');
 
 const saveStudent = async (req, res) => {
     const { stdnum, fname, lname, age } = req.body;
