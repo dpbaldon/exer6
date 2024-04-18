@@ -82,21 +82,3 @@ needle.post('http://localhost:3000/update', {
     console.log(res.body);
   }
 });
-
-// Find Student
-needle.post('http://localhost:3000/user?stdnum=000036547', (err, res) => {
-  if (err) {
-    console.error("ERROR", err);
-  } else {
-    console.log(res.body);
-  }
-});
-
-// Find All Students
-needle.post('http://localhost:3000/members', (err, res) => {
-  if (err) {
-    console.error("ERROR", err);
-  } else {
-    console.log(res.body);
-  }
-});
