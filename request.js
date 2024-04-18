@@ -71,9 +71,10 @@ needle.post('http://localhost:3000/save-student', {
   }
 });
 
-// Update Student last name
+// Update Student
 needle.post('http://localhost:3000/update', {
-  lname: "Lapitan"
+    fname: "Mary Jane", 
+    lname: "Parker"
 }, (err, res) => {
   if (err) {
     console.error("ERROR", err);
