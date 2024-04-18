@@ -1,8 +1,9 @@
 import express from 'express'
-const app = express()
+import router from './router.js';
+const app = express();
+router(app);
 
-app.get('/', (req, res) => {
-    res.send('Welcome to the Homepage!')
-})
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.listen(3000)

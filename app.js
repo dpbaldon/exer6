@@ -6,10 +6,19 @@ console.log(data);
 
 // Create a new student
 const newStudent = new Student({
-  stdnum: 12345678,
+  stdnum: 123456789,
   fname: "Juan",
   lname: "dela Cruz",
   age: 20
 });
 
-newStudent.save();
+await newStudent.save();
+
+// let data = await Student.find({});
+// console.log(data);
+
+// data = await Student.findOne({ fname: "Peter", lname: "Parker" });
+// console.log(data);
+
+// let data = await Student.find({age: {$gt: 17}});
+// console.log(data);

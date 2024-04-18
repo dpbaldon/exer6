@@ -1,12 +1,12 @@
-const express = require('express');
-const router = express.Router();
-const { saveStudent, updateStudent, removeUser, removeAllUsers, getUser, getMembers } = require('../controller/studentController');
+import { saveStudent, updateStudent, removeUser, removeAllUsers, getUser, getMembers } from './controller.js';
 
-router.post('/save-student', saveStudent);
-router.post('/update', updateStudent);
-router.post('/remove-user', removeUser);
-router.post('/remove-all-user', removeAllUsers);
-router.get('/user', getUser);
-router.get('/members', getMembers);
+const router = (app) =>{
+    app.post('/save-student', saveStudent);
+    app.post('/update', updateStudent);
+    app.post('/remove-user', removeUser);
+    app.post('/remove-all-user', removeAllUsers);
+    app.get('/user', getUser);
+    app.get('/members', getMembers);
+}
 
-module.exports = router;
+export default router;
