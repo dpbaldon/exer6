@@ -20,7 +20,7 @@ const saveStudent = async (req, res) => {
 };
 
 const updateStudent = async (req, res) => {
-    const { fname } = req.body.fname;
+    const { fname } = req.body;
     const updated = await Student.updateOne({ fname: fname }, { lname: 'Parker' });
     res.json({ updated: true });
 };
@@ -31,11 +31,12 @@ const removeUser = async (req, res) => {
 };
 
 const removeAllUsers = async (req, res) => {
+    try {
     const deleteall = await Student.deleteMany({});
-    if (result.deletedCount > 0) {
-      res.json({ deleted: true });
-    } else {
-      res.json({ deleted: false });
+    return res.status(200).json({ deleted: true, deleteCount: deleteall.deletedCount });
+    } catch (error) {
+        console.error("error:", error);
+        return res.status(500).send("error");
     }
 };
 
