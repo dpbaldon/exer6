@@ -20,18 +20,18 @@ const saveStudent = async (req, res) => {
 };
 
 const updateStudent = async (req, res) => {
-    const { fname } = req.body;
-    await Student.updateOne({ fname: 'Mary Jane' }, { lname: 'Parker' });
+    const { fname } = req.body.fname;
+    const updated = await Student.updateOne({ fname: fname }, { lname: 'Parker' });
     res.json({ updated: true });
 };
 
 const removeUser = async (req, res) => {
-    await Student.deleteOne({ stdnum: req.body.stdnum });
+    const deleteone = await Student.deleteOne({ stdnum: req.body.stdnum });
     res.json({ removed: true });
 };
 
 const removeAllUsers = async (req, res) => {
-    res.send(await Student.deleteMany());
+    const deleteall = await Student.deleteMany({});
     if (result.deletedCount > 0) {
       res.json({ deleted: true });
     } else {
@@ -40,7 +40,7 @@ const removeAllUsers = async (req, res) => {
 };
 
 const getUser = async (req, res) => {
-    res.send(await Student.find({ fname: req.query.stdnum }));
+    const find = await Student.find({ fname: req.query.stdnum });
 };
 
 const getMembers = async (req, res) => {
